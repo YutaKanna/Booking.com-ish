@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// アパートとかも後々トップ画面に
+Route::get('hotel', 'HotelController@index')->name('hotels.index');
+Route::get('hotel/{hotel}', 'HotelController@show')->name('hotels.show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
