@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class HotelsSeeder extends Seeder
+class DummyHotelSeeder extends Seeder
 {
     /**
      * Run the database seeds.
