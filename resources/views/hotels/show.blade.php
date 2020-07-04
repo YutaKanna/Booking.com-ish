@@ -24,22 +24,27 @@
                 <div class="row">
                     <div class="col-sm-12">空室状況</div>
                     <div class="col-md-12">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>部屋タイプ</th>
-                                <th>本日の料金</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($hotel->rooms as $room)
+                        <form method="POST" action="{{ route('bookings.create', ['hotel' => $hotel]) }}">
+                            @csrf
+                            <table class="table table-hover">
+                                <thead>
                                 <tr>
-                                    <td>{{ $room->roomType->name ?? '' }}</td>
-                                    <td>&yen;{{ number_format($room->charge ?? '') }}</td>
+                                    <th>部屋タイプ</th>
+                                    <th>本日の料金</th>
+                                    <th></th>
                                 </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach($hotel->rooms as $room)
+                                        <tr>
+                                            <td>{{ $room->roomType->name ?? '' }}</td>
+                                            <td>&yen;{{ number_format($room->charge ?? '') }}</td>
+                                            <td><button type="submit" class="btn btn-primary" formmethod="POST" name="room_id" value="{{ $room->id }}">{{ __('予約画面へ') }}</button></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </form>
                     </div>
                 </div>
             </div>
