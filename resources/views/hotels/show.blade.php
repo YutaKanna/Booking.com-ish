@@ -39,7 +39,7 @@
                                         <tr>
                                             <td>{{ $room->roomType->name ?? '' }}</td>
                                             <td>&yen;{{ number_format($room->charge ?? '') }}</td>
-                                            <td><button type="submit" class="btn btn-primary" formmethod="POST" name="room_type_id" value="{{ $room->roomType->id }}">{{ __('予約画面へ') }}</button></td>
+                                            <td><button type="submit" class="btn btn-primary" formmethod="POST" name="room_type_name" value="{{ $room->roomType->name }}">{{ __('予約画面へ') }}</button></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

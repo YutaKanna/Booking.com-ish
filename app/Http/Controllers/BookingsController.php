@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Bookings\BookingsCreateRequest;
 use App\Hotel;
-
+use Illuminate\Http\Request;
 
 class BookingsController extends Controller
 {
-    public function create(BookingsCreateRequest $request, Hotel $hotel)
+    public function create(Request $request, Hotel $hotel)
     {
-        $hoge = $hotel;
-        dd($hoge);
-        return view('bookings.create');
+        $room_type_name = $request->room_type_name;
+
+        return view('bookings.create', compact('hotel', 'room_type_name'));
     }
 }
