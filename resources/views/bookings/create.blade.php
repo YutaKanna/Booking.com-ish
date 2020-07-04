@@ -15,7 +15,11 @@
                 </div>
             </div>
             <div class="col-sm-7">
-                <!-- form start finish on l87 -->
+                {!! Form::open([
+                    'route' => ['bookings.store', $room],
+                    'method' => 'post',
+                ]) !!}
+                {{ csrf_field() }}
                     <h3>宿泊者の情報を入力してください</h3>
                     <div class="col-md-12">
                         <div class="form-group row">
@@ -47,6 +51,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary">予約を確定する</button>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>
